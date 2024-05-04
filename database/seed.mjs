@@ -22,6 +22,7 @@ await myQuery(sqlCreateProductsTable);
 const sqlCreateProductImagesTable = `CREATE TABLE IF NOT EXISTS Product_Images(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     url VARCHAR(255) NOT NULL,
+    main BOOL NOT NULL DEFAULT false,
     products_id INT NOT NULL,
     FOREIGN KEY (products_id) REFERENCES Products(id)
 );`;
@@ -59,7 +60,7 @@ for( let i = 0; i <20; i++){
 
     fs.writeFileSync(`./../public/product_images/${imageName}`, buffer);
 
-    const newProductImage = `INSERT INTO Product_Images (url, products_id) VALUES ("${imageName}", ${row[0].id})`;
+    const newProductImage = `INSERT INTO Product_Images (url,main, products_id) VALUES ("${imageName}",true, ${row[0].id})`;
     await myQuery(newProductImage);
 }
 

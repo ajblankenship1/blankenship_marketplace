@@ -1,0 +1,7 @@
+.mainProductImage{
+    height: 200px;
+    width: 350px;
+    background-color: #000;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
