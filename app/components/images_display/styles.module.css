@@ -1,0 +1,21 @@
+.mainImage{
+    height: 350px;
+    width: 425px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.subImage{
+    height: 140px;
+    width: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+}
+
+.subImage:hover{
+    border: 2px solid #5656d1;
+    cursor: pointer;
+}

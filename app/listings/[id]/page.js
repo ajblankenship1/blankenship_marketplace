@@ -1,5 +1,6 @@
 import myQuery from "@/database/myQuery.mjs";
 import styles from "./styles.module.css";
+import ImagesDisplay from "@/app/components/images_display/ImagesDisplay";
 
 async function getProductByID(id){
     const sqlSelectProduct = `SELECT *  FROM Products WHERE id=${id}`;
@@ -21,8 +22,7 @@ export default async function SingleListingPage(props){
     return(
         <div>
             <div className={styles.lefthandColumn}>
-                <div className={styles.mainImage} style={{backgroundImage: `url(/product_images/${images[0].url})`}}></div>
-
+                <ImagesDisplay images={images}/>
             </div>
             <div className={styles.righthandColumn} >
                 <h1>{product.title}</h1>

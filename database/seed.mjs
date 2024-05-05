@@ -50,17 +50,23 @@ for( let i = 0; i <20; i++){
     await myQuery(newProduct);
 
     const row = await myQuery("SELECT id FROM Products ORDER BY id DESC LIMIT 1");
+    
+    let main = true;
+    
+    for (let i = 0; i<3; i++){
+        const imageUrl = faker.image.urlLoremFlickr();
+        const imageName = `${row[0].id}-${Date.now()}.jpg`;
+        
+        const response = await fetch(imageUrl);
+        const arrayBuffer = await response.arrayBuffer();
+        const buffer = Buffer.from(arrayBuffer);
 
-    const imageUrl = faker.image.urlLoremFlickr();
-    const imageName = `${row[0].id}.jpg`;
+        fs.writeFileSync(`./../public/product_images/${imageName}`, buffer);
 
-    const response = await fetch(imageUrl);
-    const arrayBuffer = await response.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
+        const newProductImage = `INSERT INTO Product_Images (url,main, products_id) VALUES ("${imageName}",${main}, ${row[0].id})`;
+        await myQuery(newProductImage);
 
-    fs.writeFileSync(`./../public/product_images/${imageName}`, buffer);
-
-    const newProductImage = `INSERT INTO Product_Images (url,main, products_id) VALUES ("${imageName}",true, ${row[0].id})`;
-    await myQuery(newProductImage);
+        main = false;
+    }
 }
 
