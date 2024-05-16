@@ -21,11 +21,13 @@ export default async function ListingsPage() {
             {products.map((product)=>{
                 return(
                     <Link href={`/listings/${product.id}`}>
-                        <div>
+                        <div className={styles.eachProductContainer}>
                             <div className={styles.mainProductImage} style={{backgroundImage:`url(/product_images/${product.url})`}}></div>
-                            <h2>{product.title}</h2>
-                            <p>Price: ${product.price/100}</p>
-                            <p>Location: {product.location}</p>
+                            <div className={styles.productInfoBox}>
+                                <h2>{product.title}</h2>
+                                <p>Price: ${product.price/100}</p>
+                                <p>Location: {product.location}</p>
+                            </div>
                         </div>
                     </Link>
                 )

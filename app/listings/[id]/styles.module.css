@@ -1,4 +1,9 @@
+.itemContainer{
+display: flex;
+}
+
 .lefthandColumn{
+    margin-left: 15px;
 
 }
 

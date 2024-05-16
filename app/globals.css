@@ -1,17 +1,28 @@
 nav{
-  background-color: #ff7f50;
-  padding: 10px;
+  background-image: url("../public/Kitty\ Bidder\ \(3\).png");
+  background-size: contain;
+  background-repeat: round;
+  padding: 3px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 25px;
+ 
+  margin-bottom: 15px;
 }
 
 nav ul{
   list-style-type: none;
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-right: 15px;
+  
 }
 
 nav ul li{
   display: inline-block;
-  margin-left: 8px;
-  margin-right: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
   }
 
   nav ul li:hover{

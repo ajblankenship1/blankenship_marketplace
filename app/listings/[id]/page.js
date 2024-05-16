@@ -20,7 +20,7 @@ export default async function SingleListingPage(props){
    
     
     return(
-        <div>
+        <div className={styles.itemContainer}>
             <div className={styles.lefthandColumn}>
                 <ImagesDisplay images={images}/>
             </div>
