@@ -1,6 +1,7 @@
 import myQuery from "@/database/myQuery.mjs";
 import styles from "./styles.module.css";
 import Link from "next/link";
+import Search from "../components/images_display/search/search";
 
 
 async function getProducts(){
@@ -18,6 +19,7 @@ export default async function ListingsPage() {
     return (
       <main>
             <h1>Listings</h1>
+            <Search/>
             {products.map((product)=>{
                 return(
                     <Link href={`/listings/${product.id}`}>
